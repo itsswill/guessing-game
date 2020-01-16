@@ -9,6 +9,7 @@ export class GuessingService {
   getSecretNumber() {
     const secretNum = Math.ceil(Math.random() * 99);
     console.log(secretNum);
+    return secretNum;
   }
 }
 
