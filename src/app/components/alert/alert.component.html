@@ -1,19 +1,7 @@
-<!-----This is when you guess correct---->
-
-<div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
-  <div class="flex">
-    <div class="py-1"></div>
-    <div>
-      <p class="font-bold">Correct!!</p>
-      <p class="text-sm">You have guessed the right answer!!</p>
-    </div>
-  </div>
-</div>
-
 
 <!----This is when you are incorrect with a lower number---->
 
-<div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3" role="alert">
+<div *ngIf="showLowIncorrectAlert" class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3" role="alert">
   <p class="font-bold">Incorrect Answer!!</p>
   <p class="text-sm">Your guess was Too Low =(.</p>
 </div>
