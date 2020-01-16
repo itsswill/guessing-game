@@ -10,6 +10,9 @@ import { GuessingService } from '../../services/guessing.service';
 export class GameComponent implements OnInit {
   userGuess: string;
   secretNum: number;
+  showCorrectAlert: boolean;
+  showLowIncorrectAlert: boolean;
+  showHighIncorrectAlert: boolean;
 
   constructor(private guessServ: GuessingService) { }
 
@@ -26,9 +29,14 @@ export class GameComponent implements OnInit {
     console.log(this.userGuess);
     console.log(this.secretNum);
     if (parseInt(this.userGuess) === this.secretNum) {
+      this.showCorrectAlert = true;
       console.log('correct');
-    } else {
-      console.log('incorrect!');
+    } else if (parseInt(this.userGuess) < this.secretNum) {
+      this.showLowIncorrectAlert = true;
+      console.log('incorrect!, low guess');
+    } else if (parseInt(this.userGuess) > this.secretNum) {
+      this.showHighIncorrectAlert = true;
+      console.log('incorrect, high guess');
     }
   }
 }

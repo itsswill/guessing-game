@@ -1,26 +1,74 @@
-<div class="font-mono bg-black">
-  <div class="container mx-auto bg-black">
-    <div class="flex justify-center px-6 my-12">
-      <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-        <div class="w-full p-5 rounded-lg lg:rounded-l-none bg-black">
-          <img [src]="'/assets/images/riddler.jpg'" alt="riddler">
-        </div>
+ <!------BEGIN ALERT SECTION------->
+
+  <!-----Begin correct alert---->
+
+  <section *ngIf="showCorrectAlert" class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+    <div class="flex">
+      <div class="py-1"></div>
+      <div>
+        <p class="font-bold">Correct!!</p>
+        <p class="text-sm">You have guessed the right answer!!</p>
       </div>
-      <div class="w-full lg:w-1/2 bg-black p-5 rounded-lg lg:rounded-l-none">
-        <h1 class="pt-4 text-2xl text-green-600 text-center">I am thinking of a number between 1 and 100...</h1>
-        <div class="px-8 pt-20 pb-8 mb-4 bg-black rounded">
-          <div class="mx-20">
-            <h3 class="text-green-600 pt-5 pb-5">Please Enter Guess Below</h3>
-            <input class="shadow appearance-none border rounded py-2 px-3 text-grey-darker" type="text" [(ngModel)]="userGuess">
-            <h3>Player Guesses: {{ userGuess }}</h3>
+    </div>
+  </section>
+  <!----End Correct Guess Alert---->
+
+  <!---Begin Incorrect Low Guess Alert--->
+  <section>
+    <div *ngIf="showLowIncorrectAlert" class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3" role="alert">
+      <p class="font-bold">Incorrect Answer!!</p>
+      <p class="text-sm">Your guess was Too Low =(.</p>
+    </div>
+  </section>
+  <!---End Low Incorrect Guess Alert--->
+
+  <!---Begin High Incorrect Guess Alert--->
+  <section>
+    <div *ngIf="showHighIncorrectAlert" class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3" role="alert">
+      <p class="font-bold">Incorrect Answer!!</p>
+      <p class="text-sm">Your guess was Too High =(.</p>
+    </div>
+  </section>
+  <!---End High Guess Incorrect Alert--->
+
+
+  <!--------END ALERT SECTION------>
+
+  <!-------BEGIN BODY SECTION------->
+  <section>
+    <div class="font-mono bg-black">
+      <div class="container mx-auto">
+        <div class="flex justify-center">
+
+          <!---Begin Left Side--->
+          <div class="w-1\/2">
+            <div class="rounded-lg lg:rounded-l-none border-blue-100">
+              <img [src]="'/assets/images/riddler.jpg'" alt="riddler">
+            </div>
           </div>
-          <div class="items-center ml-32">
-            <button class="bg-green-500 hover:bg-green-500 text-white font-semibold py-2 px-4 border-b-4 border-green-700 hover:border-blue-500 rounded" (click)="playGame()">Submit Guess</button>
+          <!---End Left Side--->
+
+         <!---Begin Right Side--->
+          <div class="lg:w-1/2 bg-black rounded-lg lg:rounded-l-none">
+            <h1 class="pt-4 text-2xl text-green-600 text-center">I am thinking of a number between 1 and 100...</h1>
+            <div class="px-8 pt-20 pb-8 mb-4 bg-black rounded">
+              <div class="mx-20">
+                <h3 class="text-green-600 pt-5 pb-5 text-center">Please Enter Guess Below</h3>
+                <div class="ml-20">
+                  <input class="shadow appearance-none border rounded py-2 px-3 text-grey-darker" type="text" [(ngModel)]="userGuess">
+                </div>
+                <h3>Player Guesses: {{ userGuess }}</h3>
+              </div>
+              <div class="ml-48">
+                <button class="bg-green-500 hover:bg-green-500 text-white font-semibold py-2 px-4 border-b-4 border-green-700 hover:border-blue-500 rounded" (click)="playGame()">Submit Guess</button>
+              </div>
+            </div>
           </div>
+        <!---End Right Side--->
+
         </div>
       </div>
     </div>
-  </div>
-</div>
-
+  </section>
+  <!----------END BODY SECTION----------->
 
